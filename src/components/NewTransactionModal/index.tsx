@@ -6,15 +6,27 @@ interface NewTransactionModalProps {
   onRequestClose: () => void;
 }
 
-export function NewTransactionModal({isOpen, onRequestClose}:NewTransactionModalProps) {
+export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
   return (
-    <Container>
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={onRequestClose}
-      >
+
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      overlayClassName="react-modal-overlay"
+      className="react-modal-content"
+    >
+      <Container>
         <h2>Cadastrar Transação</h2>
-      </Modal>
-    </Container>
+
+        <input placeholder="Título"/>
+        <input placeholder="Valor" type="number"/>
+        <input placeholder="Categoria"/>
+        <button type="submit">
+          Cadastrar
+        </button>
+
+      </Container>
+
+    </Modal>
   );
 }
